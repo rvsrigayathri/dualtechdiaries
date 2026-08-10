@@ -1,25 +1,26 @@
 import React from 'react';
-import { Sparkles, FileText, CheckCircle2, Layout, RotateCcw, Download } from 'lucide-react';
+import { FileText, CheckCircle2, Layout, RotateCcw, Download } from 'lucide-react';
 
 export default function Header({ currentStep, setStep, onReset, onExportJson }) {
   return (
     <header className="app-header no-print">
-      <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-        <div style={{
-          width: '40px',
-          height: '40px',
-          borderRadius: '12px',
-          background: 'var(--accent-gradient)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          boxShadow: 'var(--shadow-glow)'
-        }}>
-          <Sparkles size={22} color="#ffffff" />
-        </div>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+        <img
+          src="/logo.jpg"
+          alt="DualTech Diaries Logo"
+          style={{
+            width: '46px',
+            height: '46px',
+            borderRadius: '50%',
+            objectFit: 'cover',
+            border: '2px solid rgba(99, 102, 241, 0.5)',
+            boxShadow: '0 0 15px rgba(99, 102, 241, 0.4)',
+            background: '#ffffff'
+          }}
+        />
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <h2 style={{ fontSize: '1.2rem', fontWeight: '800', fontFamily: "'Sora', sans-serif", letterSpacing: '-0.02em', background: 'linear-gradient(to right, #ffffff, #a5b4fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+            <h2 style={{ fontSize: '1.25rem', fontWeight: '800', fontFamily: "'Sora', sans-serif", letterSpacing: '-0.02em', background: 'linear-gradient(to right, #ffffff, #a5b4fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
               DualTech Portfolio
             </h2>
             <span style={{ fontSize: '0.7rem', padding: '2px 8px', borderRadius: '12px', background: 'rgba(99, 102, 241, 0.2)', border: '1px solid rgba(99, 102, 241, 0.4)', color: '#c7d2fe', fontFamily: "'Space Grotesk', sans-serif", fontWeight: '600' }}>
@@ -27,7 +28,7 @@ export default function Header({ currentStep, setStep, onReset, onExportJson }) 
             </span>
           </div>
           <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontFamily: "'Space Grotesk', sans-serif" }}>
-            LinkedIn PDF → Main Character Portfolio & Resume
+            Bridging Heritage & Technology • LinkedIn PDF → Portfolio
           </p>
         </div>
       </div>
