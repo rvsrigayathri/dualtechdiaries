@@ -5,32 +5,32 @@ export const THEMES = [
   {
     id: 'modern-tech',
     name: 'Modern Tech',
-    category: 'Dark Glassmorphism',
-    desc: 'Cyberpunk glow, glass floating cards, high-contrast dark theme for tech stack showcases.',
+    category: 'Dark Mode Flex ⚡',
+    desc: 'Cyberpunk glass cards, neon accents, and dark aesthetic for developers & tech engineers.',
     previewBg: 'linear-gradient(135deg, #0b0f19, #1f2937)',
     accent: '#6366f1'
   },
   {
     id: 'executive-minimal',
     name: 'Executive Minimalist',
-    category: 'Editorial Light',
-    desc: 'Warm ivory backdrop, serif typography, high-end editorial layout for senior leaders.',
+    category: 'Quiet Luxury 🏛️',
+    desc: 'Ivory backdrop, editorial serif headers, and spacious layout for senior leaders & executives.',
     previewBg: 'linear-gradient(135deg, #fafaf9, #f3f4f6)',
     accent: '#0f172a'
   },
   {
     id: 'creative-studio',
     name: 'Creative Studio',
-    category: 'Vibrant Dynamic Gradient',
-    desc: 'Bold colors, playful hover effects, and vibrant card highlights for designers & innovators.',
+    category: 'Bold & Iconic 🎨',
+    desc: 'Vibrant gradients, playful card styling, and interactive hover effects for designers & creators.',
     previewBg: 'linear-gradient(135deg, #3b82f6, #ec4899)',
     accent: '#ec4899'
   },
   {
     id: 'swiss-grid',
     name: 'Swiss Grid',
-    category: 'Monochrome Clean',
-    desc: 'Ultra-structured grid layout, sharp typographic hierarchy, and minimalist design.',
+    category: 'Clean Code Energy 💻',
+    desc: 'Monochrome terminal vibe, sharp grid structure, and ultra-readable monospace typography.',
     previewBg: 'linear-gradient(135deg, #111111, #222222)',
     accent: '#10b981'
   }
@@ -38,13 +38,13 @@ export const THEMES = [
 
 export default function ThemeSelector({ activeTheme, onSelectTheme }) {
   return (
-    <div style={{ marginBottom: '28px' }}>
+    <div style={{ marginBottom: '32px' }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
-        <Palette size={20} color="var(--accent-primary)" />
-        <h3 style={{ fontSize: '1.2rem', fontWeight: '700' }}>Choose Portfolio Theme</h3>
+        <Palette size={22} color="var(--accent-primary)" />
+        <h3 style={{ fontSize: '1.25rem', fontWeight: '800', fontFamily: "'Sora', sans-serif" }}>Select Your Vibe & Theme</h3>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))', gap: '16px' }}>
         {THEMES.map((theme) => {
           const isSelected = activeTheme === theme.id;
           return (
@@ -53,7 +53,7 @@ export default function ThemeSelector({ activeTheme, onSelectTheme }) {
               onClick={() => onSelectTheme(theme.id)}
               className="glass-card"
               style={{
-                padding: '16px',
+                padding: '18px',
                 cursor: 'pointer',
                 border: `2px solid ${isSelected ? 'var(--accent-primary)' : 'rgba(255,255,255,0.08)'}`,
                 background: isSelected ? 'rgba(99, 102, 241, 0.12)' : 'var(--bg-card)',
@@ -61,10 +61,10 @@ export default function ThemeSelector({ activeTheme, onSelectTheme }) {
               }}
             >
               <div style={{
-                height: '60px',
+                height: '64px',
                 borderRadius: 'var(--radius-md)',
                 background: theme.previewBg,
-                marginBottom: '12px',
+                marginBottom: '14px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -72,8 +72,8 @@ export default function ThemeSelector({ activeTheme, onSelectTheme }) {
               }}>
                 {isSelected && (
                   <div style={{
-                    width: '28px',
-                    height: '28px',
+                    width: '30px',
+                    height: '30px',
                     borderRadius: '50%',
                     background: 'var(--accent-primary)',
                     display: 'flex',
@@ -81,18 +81,22 @@ export default function ThemeSelector({ activeTheme, onSelectTheme }) {
                     justifyContent: 'center',
                     boxShadow: 'var(--shadow-glow)'
                   }}>
-                    <Check size={16} color="#ffffff" />
+                    <Check size={18} color="#ffffff" />
                   </div>
                 )}
               </div>
 
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <h4 style={{ fontSize: '1rem', fontWeight: '700' }}>{theme.name}</h4>
-                <span style={{ fontSize: '0.75rem', padding: '2px 8px', borderRadius: '12px', background: 'rgba(255,255,255,0.1)', color: 'var(--text-muted)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '6px' }}>
+                <h4 style={{ fontSize: '1.05rem', fontWeight: '700', fontFamily: "'Sora', sans-serif" }}>{theme.name}</h4>
+              </div>
+
+              <div style={{ marginBottom: '8px' }}>
+                <span className="badge" style={{ fontSize: '0.75rem', padding: '3px 10px' }}>
                   {theme.category}
                 </span>
               </div>
-              <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: '6px', lineHeight: '1.4' }}>
+
+              <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', lineHeight: '1.45', fontFamily: "'Space Grotesk', sans-serif" }}>
                 {theme.desc}
               </p>
             </div>

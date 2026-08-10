@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { User, Briefcase, GraduationCap, Code, Globe, Plus, Trash2, ArrowRight, CheckCircle, Image as ImageIcon } from 'lucide-react';
+import { User, Briefcase, GraduationCap, Code, Globe, Plus, Trash2, ArrowRight, CheckCircle, Flame } from 'lucide-react';
 
 export default function ReviewEditForm({ profile, onUpdateProfile, onProceedToPreview }) {
   const [activeTab, setActiveTab] = useState('personal');
@@ -102,12 +102,15 @@ export default function ReviewEditForm({ profile, onUpdateProfile, onProceedToPr
       {/* Top Banner */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '28px', flexWrap: 'wrap', gap: '16px' }}>
         <div>
-          <h2 style={{ fontSize: '1.8rem', fontWeight: '800' }}>Review & Refine Profile</h2>
-          <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>
-            Verify extracted LinkedIn information and add custom projects before choosing your portfolio theme.
+          <div className="badge" style={{ marginBottom: '8px' }}>
+            <Flame size={12} color="#f43f5e" /> Step 2: Fine-Tune & Flex
+          </div>
+          <h2 style={{ fontSize: '2rem', fontWeight: '800', fontFamily: "'Sora', sans-serif" }}>Review & Refine Profile</h2>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', fontFamily: "'Space Grotesk', sans-serif" }}>
+            Verify extracted LinkedIn information and customize details before serving your portfolio website.
           </p>
         </div>
-        <button onClick={onProceedToPreview} className="btn btn-primary btn-lg">
+        <button onClick={onProceedToPreview} className="btn btn-primary btn-lg" style={{ borderRadius: 'var(--radius-md)', padding: '14px 28px' }}>
           Generate Portfolio & Resume
           <ArrowRight size={18} />
         </button>
@@ -121,35 +124,35 @@ export default function ReviewEditForm({ profile, onUpdateProfile, onProceedToPr
             <button
               onClick={() => setActiveTab('personal')}
               className={`btn ${activeTab === 'personal' ? 'btn-primary' : 'btn-ghost'}`}
-              style={{ justifyContent: 'flex-start', width: '100%' }}
+              style={{ justifyContent: 'flex-start', width: '100%', fontFamily: "'Space Grotesk', sans-serif" }}
             >
               <User size={18} /> Personal Details
             </button>
             <button
               onClick={() => setActiveTab('experience')}
               className={`btn ${activeTab === 'experience' ? 'btn-primary' : 'btn-ghost'}`}
-              style={{ justifyContent: 'flex-start', width: '100%' }}
+              style={{ justifyContent: 'flex-start', width: '100%', fontFamily: "'Space Grotesk', sans-serif" }}
             >
               <Briefcase size={18} /> Experience ({profile.experiences?.length || 0})
             </button>
             <button
               onClick={() => setActiveTab('education')}
               className={`btn ${activeTab === 'education' ? 'btn-primary' : 'btn-ghost'}`}
-              style={{ justifyContent: 'flex-start', width: '100%' }}
+              style={{ justifyContent: 'flex-start', width: '100%', fontFamily: "'Space Grotesk', sans-serif" }}
             >
               <GraduationCap size={18} /> Education ({profile.education?.length || 0})
             </button>
             <button
               onClick={() => setActiveTab('skills')}
               className={`btn ${activeTab === 'skills' ? 'btn-primary' : 'btn-ghost'}`}
-              style={{ justifyContent: 'flex-start', width: '100%' }}
+              style={{ justifyContent: 'flex-start', width: '100%', fontFamily: "'Space Grotesk', sans-serif" }}
             >
-              <Code size={18} /> Skills & Tags ({profile.skills?.length || 0})
+              <Code size={18} /> Tech Stack & Skills ({profile.skills?.length || 0})
             </button>
             <button
               onClick={() => setActiveTab('projects')}
               className={`btn ${activeTab === 'projects' ? 'btn-primary' : 'btn-ghost'}`}
-              style={{ justifyContent: 'flex-start', width: '100%' }}
+              style={{ justifyContent: 'flex-start', width: '100%', fontFamily: "'Space Grotesk', sans-serif" }}
             >
               <Globe size={18} /> Portfolio Projects ({profile.projects?.length || 0})
             </button>
@@ -161,7 +164,7 @@ export default function ReviewEditForm({ profile, onUpdateProfile, onProceedToPr
           {/* TAB 1: PERSONAL DETAILS */}
           {activeTab === 'personal' && (
             <div>
-              <h3 style={{ fontSize: '1.25rem', marginBottom: '20px', borderBottom: '1px solid var(--border-color)', paddingBottom: '12px' }}>
+              <h3 style={{ fontSize: '1.25rem', fontFamily: "'Sora', sans-serif", marginBottom: '20px', borderBottom: '1px solid var(--border-color)', paddingBottom: '12px' }}>
                 Personal Details & Summary
               </h3>
 
@@ -251,7 +254,7 @@ export default function ReviewEditForm({ profile, onUpdateProfile, onProceedToPr
                     <img
                       src={profile.photoUrl}
                       alt="Avatar Preview"
-                      style={{ width: '42px', height: '42px', borderRadius: '50%', objectFit: 'cover', border: '2px solid var(--accent-primary)' }}
+                      style={{ width: '44px', height: '44px', borderRadius: '50%', objectFit: 'cover', border: '2px solid var(--accent-primary)' }}
                       onError={(e) => { e.target.style.display = 'none'; }}
                     />
                   )}
@@ -274,7 +277,7 @@ export default function ReviewEditForm({ profile, onUpdateProfile, onProceedToPr
           {activeTab === 'experience' && (
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px', borderBottom: '1px solid var(--border-color)', paddingBottom: '12px' }}>
-                <h3 style={{ fontSize: '1.25rem' }}>Work Experience</h3>
+                <h3 style={{ fontSize: '1.25rem', fontFamily: "'Sora', sans-serif" }}>Work Experience</h3>
                 <button onClick={addExperience} className="btn btn-secondary btn-sm">
                   <Plus size={16} /> Add Position
                 </button>
@@ -289,7 +292,7 @@ export default function ReviewEditForm({ profile, onUpdateProfile, onProceedToPr
                   marginBottom: '16px'
                 }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '12px' }}>
-                    <h4 style={{ fontSize: '1rem', color: 'var(--accent-primary)' }}>Position #{index + 1}</h4>
+                    <h4 style={{ fontSize: '1rem', color: 'var(--accent-primary)', fontFamily: "'Sora', sans-serif" }}>Position #{index + 1}</h4>
                     <button onClick={() => removeExperience(index)} className="btn btn-ghost btn-sm" style={{ color: '#ef4444' }}>
                       <Trash2 size={16} />
                     </button>
@@ -355,7 +358,7 @@ export default function ReviewEditForm({ profile, onUpdateProfile, onProceedToPr
           {activeTab === 'education' && (
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px', borderBottom: '1px solid var(--border-color)', paddingBottom: '12px' }}>
-                <h3 style={{ fontSize: '1.25rem' }}>Education & Credentials</h3>
+                <h3 style={{ fontSize: '1.25rem', fontFamily: "'Sora', sans-serif" }}>Education & Credentials</h3>
                 <button onClick={addEducation} className="btn btn-secondary btn-sm">
                   <Plus size={16} /> Add Education
                 </button>
@@ -370,7 +373,7 @@ export default function ReviewEditForm({ profile, onUpdateProfile, onProceedToPr
                   marginBottom: '16px'
                 }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '12px' }}>
-                    <h4 style={{ fontSize: '1rem', color: 'var(--accent-primary)' }}>Education #{index + 1}</h4>
+                    <h4 style={{ fontSize: '1rem', color: 'var(--accent-primary)', fontFamily: "'Sora', sans-serif" }}>Education #{index + 1}</h4>
                     <button onClick={() => removeEducation(index)} className="btn btn-ghost btn-sm" style={{ color: '#ef4444' }}>
                       <Trash2 size={16} />
                     </button>
@@ -425,15 +428,15 @@ export default function ReviewEditForm({ profile, onUpdateProfile, onProceedToPr
           {/* TAB 4: SKILLS */}
           {activeTab === 'skills' && (
             <div>
-              <h3 style={{ fontSize: '1.25rem', marginBottom: '20px', borderBottom: '1px solid var(--border-color)', paddingBottom: '12px' }}>
-                Skills & Tech Stack
+              <h3 style={{ fontSize: '1.25rem', fontFamily: "'Sora', sans-serif", marginBottom: '20px', borderBottom: '1px solid var(--border-color)', paddingBottom: '12px' }}>
+                Tech Stack & Skills
               </h3>
 
               <div style={{ display: 'flex', gap: '12px', marginBottom: '24px' }}>
                 <input
                   type="text"
                   className="input-field"
-                  placeholder="Add a new skill (e.g. React, Kubernetes, PostgreSQL)"
+                  placeholder="Add a new skill (e.g. React, Python, Spring Boot)"
                   value={newSkillInput}
                   onChange={(e) => setNewSkillInput(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && (e.preventDefault(), addSkill())}
@@ -463,7 +466,7 @@ export default function ReviewEditForm({ profile, onUpdateProfile, onProceedToPr
           {activeTab === 'projects' && (
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px', borderBottom: '1px solid var(--border-color)', paddingBottom: '12px' }}>
-                <h3 style={{ fontSize: '1.25rem' }}>Portfolio Projects</h3>
+                <h3 style={{ fontSize: '1.25rem', fontFamily: "'Sora', sans-serif" }}>Portfolio Projects</h3>
                 <button onClick={addProject} className="btn btn-secondary btn-sm">
                   <Plus size={16} /> Add Project
                 </button>
@@ -478,7 +481,7 @@ export default function ReviewEditForm({ profile, onUpdateProfile, onProceedToPr
                   marginBottom: '16px'
                 }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '12px' }}>
-                    <h4 style={{ fontSize: '1rem', color: 'var(--accent-primary)' }}>Project #{index + 1}</h4>
+                    <h4 style={{ fontSize: '1rem', color: 'var(--accent-primary)', fontFamily: "'Sora', sans-serif" }}>Project #{index + 1}</h4>
                     <button onClick={() => removeProject(index)} className="btn btn-ghost btn-sm" style={{ color: '#ef4444' }}>
                       <Trash2 size={16} />
                     </button>

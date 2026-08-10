@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { UploadCloud, FileCheck, ArrowRight, ShieldCheck, Zap, Palette, FileText, CheckCircle2, Sparkles } from 'lucide-react';
+import { UploadCloud, FileCheck, ArrowRight, ShieldCheck, Zap, Palette, FileText, CheckCircle2, Sparkles, Flame, Check } from 'lucide-react';
 import { extractTextFromPDF, parseLinkedInText } from '../utils/linkedinParser';
 
 export default function LandingHero({ onProfileParsed, onLoadSample }) {
@@ -37,15 +37,15 @@ export default function LandingHero({ onProfileParsed, onLoadSample }) {
   return (
     <div className="animate-fade-in" style={{ padding: '60px 0 80px 0' }}>
       {/* Hero Header */}
-      <div style={{ textAlign: 'center', maxWidth: '840px', margin: '0 auto 48px auto' }}>
-        <div className="badge" style={{ marginBottom: '20px' }}>
-          <Zap size={14} /> Next-Gen AI Portfolio & Resume Builder
+      <div style={{ textAlign: 'center', maxWidth: '880px', margin: '0 auto 48px auto' }}>
+        <div className="badge" style={{ marginBottom: '20px', padding: '6px 16px', fontSize: '0.85rem' }}>
+          <Flame size={14} color="#f43f5e" /> Main Character Energy for Your Career • No Cap
         </div>
-        <h1 style={{ fontSize: '3.2rem', fontWeight: '800', letterSpacing: '-0.03em', marginBottom: '20px', lineHeight: '1.15' }}>
-          Turn Your <span className="gradient-text">LinkedIn Profile</span> into a Stunning Portfolio & Resume
+        <h1 style={{ fontSize: '3.4rem', fontWeight: '800', fontFamily: "'Sora', sans-serif", letterSpacing: '-0.03em', marginBottom: '20px', lineHeight: '1.15' }}>
+          Turn Your LinkedIn PDF Into a <span className="gradient-text">Stunning Portfolio & Resume</span>
         </h1>
-        <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>
-          Export your LinkedIn to PDF, drag & drop it below, and get a handcrafted portfolio site with matching ATS-ready resume in seconds.
+        <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', lineHeight: '1.6', fontFamily: "'Space Grotesk', sans-serif" }}>
+          Drop your LinkedIn export PDF below. Our client-side parser extracts your work history, projects, and skills to generate a high-converting website & ATS-friendly resume in seconds.
         </p>
       </div>
 
@@ -60,8 +60,8 @@ export default function LandingHero({ onProfileParsed, onLoadSample }) {
             padding: '48px 36px',
             textAlign: 'center',
             cursor: 'pointer',
-            border: `2px dashed ${isDragging ? 'var(--accent-primary)' : 'rgba(255, 255, 255, 0.15)'}`,
-            background: isDragging ? 'rgba(99, 102, 241, 0.08)' : 'var(--bg-card)',
+            border: `2px dashed ${isDragging ? 'var(--accent-primary)' : 'rgba(255, 255, 255, 0.18)'}`,
+            background: isDragging ? 'rgba(99, 102, 241, 0.1)' : 'var(--bg-card)',
             transition: 'var(--transition-smooth)',
             transform: isDragging ? 'scale(1.02)' : 'none'
           }}
@@ -87,32 +87,33 @@ export default function LandingHero({ onProfileParsed, onLoadSample }) {
                 margin: '0 auto 16px auto'
               }} />
               <style>{`@keyframes spin { 100% { transform: rotate(360deg); } }`}</style>
-              <h3 style={{ fontSize: '1.2rem', marginBottom: '8px' }}>Parsing LinkedIn Profile PDF...</h3>
-              <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>Extracting experience, education, skills, and headline</p>
+              <h3 style={{ fontSize: '1.2rem', marginBottom: '8px' }}>Letting Us Cook... Extracting PDF 🍳</h3>
+              <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>Parsing experience, credentials, skills, and headline</p>
             </div>
           ) : (
             <>
               <div style={{
-                width: '64px',
-                height: '64px',
-                borderRadius: '16px',
+                width: '68px',
+                height: '68px',
+                borderRadius: '20px',
                 background: 'rgba(99, 102, 241, 0.15)',
-                border: '1px solid rgba(99, 102, 241, 0.3)',
+                border: '1px solid rgba(99, 102, 241, 0.35)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                margin: '0 auto 20px auto'
+                margin: '0 auto 20px auto',
+                boxShadow: 'var(--shadow-glow)'
               }}>
-                <UploadCloud size={32} color="#818cf8" />
+                <UploadCloud size={34} color="#818cf8" />
               </div>
-              <h3 style={{ fontSize: '1.3rem', fontWeight: '700', marginBottom: '8px' }}>
-                Drag & Drop LinkedIn "Save to PDF" Here
+              <h3 style={{ fontSize: '1.35rem', fontWeight: '800', fontFamily: "'Sora', sans-serif", marginBottom: '8px' }}>
+                Drop Your LinkedIn "Save to PDF" Export Here
               </h3>
-              <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', marginBottom: '20px' }}>
-                or click to browse files from your computer
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', marginBottom: '20px', fontFamily: "'Space Grotesk', sans-serif" }}>
+                or click to select your PDF file from your device
               </p>
-              <span className="btn btn-secondary btn-sm">
-                Select PDF File
+              <span className="btn btn-secondary btn-sm" style={{ padding: '10px 20px', borderRadius: 'var(--radius-full)' }}>
+                📁 Choose LinkedIn PDF
               </span>
             </>
           )}
@@ -136,15 +137,15 @@ export default function LandingHero({ onProfileParsed, onLoadSample }) {
         {/* Demo Button */}
         <div style={{ textAlign: 'center', marginTop: '24px' }}>
           <p style={{ fontSize: '0.9rem', color: 'var(--text-dim)', marginBottom: '12px' }}>
-            Don't have a LinkedIn PDF ready right now?
+            No LinkedIn PDF handy? Test drive the full workflow instantly!
           </p>
           <button
             onClick={onLoadSample}
             className="btn btn-primary"
-            style={{ width: '100%', justifyContent: 'center' }}
+            style={{ width: '100%', justifyContent: 'center', padding: '16px 28px', fontSize: '1.05rem', borderRadius: 'var(--radius-md)' }}
           >
             <Sparkles size={18} />
-            Try Instant Demo with Sample LinkedIn Profile
+            Try Instant Demo (See the Magic in 1-Click)
             <ArrowRight size={18} />
           </button>
         </div>
@@ -153,32 +154,32 @@ export default function LandingHero({ onProfileParsed, onLoadSample }) {
       {/* 3 Step Process Overview */}
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
         gap: '24px',
-        maxWidth: '1000px',
+        maxWidth: '1020px',
         margin: '60px auto 0 auto'
       }}>
-        <div className="glass-card" style={{ padding: '24px' }}>
-          <div className="badge" style={{ marginBottom: '12px' }}>Step 1</div>
-          <h4 style={{ fontSize: '1.1rem', marginBottom: '8px' }}>Upload Export</h4>
-          <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>
-            Go to your LinkedIn Profile → Click "More" → "Save to PDF", then upload it here.
+        <div className="glass-card" style={{ padding: '28px' }}>
+          <div className="badge" style={{ marginBottom: '14px' }}>Step 1 📄</div>
+          <h4 style={{ fontSize: '1.15rem', marginBottom: '8px', fontFamily: "'Sora', sans-serif" }}>Upload LinkedIn PDF</h4>
+          <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: '1.5' }}>
+            Go to your LinkedIn profile → Click "More" → "Save to PDF". Drop it here and let our engine parse your data.
           </p>
         </div>
 
-        <div className="glass-card" style={{ padding: '24px' }}>
-          <div className="badge" style={{ marginBottom: '12px' }}>Step 2</div>
-          <h4 style={{ fontSize: '1.1rem', marginBottom: '8px' }}>Review & Edit</h4>
-          <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>
-            Refine extracted text, add custom projects, fine-tune skills, and upload your profile photo.
+        <div className="glass-card" style={{ padding: '28px' }}>
+          <div className="badge" style={{ marginBottom: '14px' }}>Step 2 ✏️</div>
+          <h4 style={{ fontSize: '1.15rem', marginBottom: '8px', fontFamily: "'Sora', sans-serif" }}>Fine-Tune Details</h4>
+          <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: '1.5' }}>
+            Review parsed experience, tweak copy, add portfolio projects, set your profile photo, and highlight top tech stack tags.
           </p>
         </div>
 
-        <div className="glass-card" style={{ padding: '24px' }}>
-          <div className="badge" style={{ marginBottom: '12px' }}>Step 3</div>
-          <h4 style={{ fontSize: '1.1rem', marginBottom: '8px' }}>Generate & Export</h4>
-          <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>
-            Choose from 4 custom design themes, launch your live portfolio, and download a matching PDF resume.
+        <div className="glass-card" style={{ padding: '28px' }}>
+          <div className="badge" style={{ marginBottom: '14px' }}>Step 3 🚀</div>
+          <h4 style={{ fontSize: '1.15rem', marginBottom: '8px', fontFamily: "'Sora', sans-serif" }}>Serve & Share</h4>
+          <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: '1.5' }}>
+            Choose from 4 custom aesthetics, launch your interactive portfolio website, and export a clean ATS PDF resume.
           </p>
         </div>
       </div>

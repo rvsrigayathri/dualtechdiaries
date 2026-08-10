@@ -12,7 +12,7 @@ export default function PortfolioViewer({ profile, theme, onSwitchToResume }) {
   const handleCopyLink = () => {
     navigator.clipboard?.writeText(portfolioUrl);
     setCopiedLink(true);
-    confetti({ particleCount: 50, spread: 60, origin: { y: 0.8 } });
+    confetti({ particleCount: 60, spread: 70, origin: { y: 0.8 } });
     setTimeout(() => setCopiedLink(false), 3000);
   };
 
@@ -33,14 +33,14 @@ export default function PortfolioViewer({ profile, theme, onSwitchToResume }) {
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
           <div>
-            <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Shareable Portfolio URL</div>
-            <div style={{ fontSize: '1rem', fontWeight: '700', color: 'var(--accent-primary)', display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontFamily: "'Space Grotesk', sans-serif" }}>Live Shareable Portfolio URL</div>
+            <div style={{ fontSize: '1.05rem', fontWeight: '700', color: 'var(--accent-primary)', display: 'flex', alignItems: 'center', gap: '6px', fontFamily: "'Sora', sans-serif" }}>
               <Globe size={16} /> {portfolioUrl}
             </div>
           </div>
-          <button onClick={handleCopyLink} className="btn btn-secondary btn-sm">
+          <button onClick={handleCopyLink} className="btn btn-secondary btn-sm" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
             {copiedLink ? <Check size={14} color="#10b981" /> : <Copy size={14} />}
-            {copiedLink ? 'Copied!' : 'Copy Share Link'}
+            {copiedLink ? 'Link Copied! ⚡' : 'Copy Share Link'}
           </button>
         </div>
 
@@ -50,19 +50,21 @@ export default function PortfolioViewer({ profile, theme, onSwitchToResume }) {
             <button
               onClick={() => setViewMode('desktop')}
               className={`btn btn-sm ${viewMode === 'desktop' ? 'btn-secondary' : 'btn-ghost'}`}
+              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
             >
-              <Monitor size={14} /> Desktop View
+              <Monitor size={14} /> Desktop
             </button>
             <button
               onClick={() => setViewMode('mobile')}
               className={`btn btn-sm ${viewMode === 'mobile' ? 'btn-secondary' : 'btn-ghost'}`}
+              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
             >
-              <Smartphone size={14} /> Mobile View
+              <Smartphone size={14} /> Mobile
             </button>
           </div>
 
-          <button onClick={onSwitchToResume} className="btn btn-primary btn-sm">
-            <FileText size={16} /> View & Download PDF Resume
+          <button onClick={onSwitchToResume} className="btn btn-primary btn-sm" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+            <FileText size={16} /> ATS PDF Resume Format
           </button>
         </div>
       </div>
@@ -76,7 +78,7 @@ export default function PortfolioViewer({ profile, theme, onSwitchToResume }) {
         overflow: 'hidden',
         boxShadow: 'var(--shadow-lg)'
       }}>
-        {/* THEME 1: MODERN TECH (DARK GLASSMORPHISM) */}
+        {/* THEME 1: MODERN TECH (DARK MODE FLEX) */}
         {theme === 'modern-tech' && (
           <div style={{
             background: '#0b0f19',
@@ -108,8 +110,8 @@ export default function PortfolioViewer({ profile, theme, onSwitchToResume }) {
                 </div>
               )}
               <div style={{ flex: 1 }}>
-                <span className="badge" style={{ marginBottom: '8px' }}>Available for hire</span>
-                <h1 style={{ fontSize: '2.8rem', fontWeight: '800', marginBottom: '8px' }}>{profile.name}</h1>
+                <span className="badge" style={{ marginBottom: '8px' }}>Open for top opportunities ⚡</span>
+                <h1 style={{ fontSize: '2.8rem', fontWeight: '800', fontFamily: "'Sora', sans-serif", marginBottom: '8px' }}>{profile.name}</h1>
                 <p style={{ fontSize: '1.25rem', color: '#a5b4fc', fontWeight: '600' }}>{profile.headline}</p>
                 <p style={{ fontSize: '0.9rem', color: '#9ca3af', marginTop: '6px' }}><MapPin size={14} inline /> {profile.location}</p>
               </div>
@@ -118,7 +120,7 @@ export default function PortfolioViewer({ profile, theme, onSwitchToResume }) {
             {/* About */}
             {profile.summary && (
               <div style={{ marginBottom: '48px' }}>
-                <h3 style={{ fontSize: '1.1rem', color: '#6366f1', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '12px' }}>
+                <h3 style={{ fontSize: '1.1rem', color: '#6366f1', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '12px', fontFamily: "'Sora', sans-serif" }}>
                   // About Me
                 </h3>
                 <p style={{ fontSize: '1.1rem', color: '#d1d5db', lineHeight: '1.7' }}>
@@ -130,8 +132,8 @@ export default function PortfolioViewer({ profile, theme, onSwitchToResume }) {
             {/* Skills */}
             {profile.skills && profile.skills.length > 0 && (
               <div style={{ marginBottom: '48px' }}>
-                <h3 style={{ fontSize: '1.1rem', color: '#6366f1', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '16px' }}>
-                  // Tech Stack & Skills
+                <h3 style={{ fontSize: '1.1rem', color: '#6366f1', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '16px', fontFamily: "'Sora', sans-serif" }}>
+                  // Tech Stack & Expertise
                 </h3>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
                   {profile.skills.map((skill, idx) => (
@@ -154,14 +156,14 @@ export default function PortfolioViewer({ profile, theme, onSwitchToResume }) {
             {/* Experience */}
             {profile.experiences && profile.experiences.length > 0 && (
               <div style={{ marginBottom: '48px' }}>
-                <h3 style={{ fontSize: '1.1rem', color: '#6366f1', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '24px' }}>
-                  // Experience
+                <h3 style={{ fontSize: '1.1rem', color: '#6366f1', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '24px', fontFamily: "'Sora', sans-serif" }}>
+                  // Experience & Career
                 </h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                   {profile.experiences.map((exp, idx) => (
                     <div key={idx} className="glass-card" style={{ padding: '24px' }}>
                       <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px', flexWrap: 'wrap' }}>
-                        <h4 style={{ fontSize: '1.2rem', fontWeight: '700' }}>{exp.title}</h4>
+                        <h4 style={{ fontSize: '1.2rem', fontWeight: '700', fontFamily: "'Sora', sans-serif" }}>{exp.title}</h4>
                         <span style={{ color: '#a5b4fc', fontSize: '0.9rem' }}>{exp.startDate} – {exp.endDate}</span>
                       </div>
                       <div style={{ color: '#9ca3af', fontWeight: '600', marginBottom: '12px' }}>{exp.company}</div>
@@ -176,7 +178,7 @@ export default function PortfolioViewer({ profile, theme, onSwitchToResume }) {
           </div>
         )}
 
-        {/* THEME 2: EXECUTIVE MINIMALIST (EDITORIAL LIGHT) */}
+        {/* THEME 2: EXECUTIVE MINIMALIST (QUIET LUXURY) */}
         {theme === 'executive-minimal' && (
           <div style={{
             background: '#fafaf9',
@@ -199,7 +201,7 @@ export default function PortfolioViewer({ profile, theme, onSwitchToResume }) {
             {profile.summary && (
               <div style={{ marginBottom: '48px', maxWidth: '800px' }}>
                 <h3 style={{ fontFamily: "'Inter', sans-serif", fontSize: '0.85rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.1em', color: '#a8a29e', marginBottom: '16px' }}>
-                  Biography
+                  Executive Biography
                 </h3>
                 <p style={{ fontSize: '1.25rem', lineHeight: '1.8', color: '#292524' }}>
                   {profile.summary}
@@ -210,7 +212,7 @@ export default function PortfolioViewer({ profile, theme, onSwitchToResume }) {
             {profile.experiences && profile.experiences.length > 0 && (
               <div style={{ marginBottom: '48px' }}>
                 <h3 style={{ fontFamily: "'Inter', sans-serif", fontSize: '0.85rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.1em', color: '#a8a29e', marginBottom: '24px' }}>
-                  Leadership & Career
+                  Leadership & Career Track
                 </h3>
                 {profile.experiences.map((exp, idx) => (
                   <div key={idx} style={{ marginBottom: '32px', borderLeft: '2px solid #e7e5e4', paddingLeft: '20px' }}>
@@ -228,7 +230,7 @@ export default function PortfolioViewer({ profile, theme, onSwitchToResume }) {
           </div>
         )}
 
-        {/* THEME 3: CREATIVE STUDIO (VIBRANT GRADIENT) */}
+        {/* THEME 3: CREATIVE STUDIO (BOLD & ICONIC) */}
         {theme === 'creative-studio' && (
           <div style={{
             background: 'linear-gradient(135deg, #1e1b4b 0%, #311b92 50%, #4a148c 100%)',
@@ -269,7 +271,7 @@ export default function PortfolioViewer({ profile, theme, onSwitchToResume }) {
           </div>
         )}
 
-        {/* THEME 4: SWISS GRID (MONOCHROME CLEAN) */}
+        {/* THEME 4: SWISS GRID (CLEAN CODE ENERGY) */}
         {theme === 'swiss-grid' && (
           <div style={{
             background: '#121212',

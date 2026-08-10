@@ -1,28 +1,28 @@
 import React from 'react';
-import { Sparkles, FileText, CheckCircle2, Layout, RotateCcw, Download, Eye } from 'lucide-react';
+import { Sparkles, FileText, CheckCircle2, Layout, RotateCcw, Download } from 'lucide-react';
 
 export default function Header({ currentStep, setStep, onReset, onExportJson }) {
   return (
     <header className="app-header no-print">
       <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
         <div style={{
-          width: '38px',
-          height: '38px',
-          borderRadius: '10px',
+          width: '40px',
+          height: '40px',
+          borderRadius: '12px',
           background: 'var(--accent-gradient)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           boxShadow: 'var(--shadow-glow)'
         }}>
-          <Sparkles size={20} color="#ffffff" />
+          <Sparkles size={22} color="#ffffff" />
         </div>
         <div>
-          <h2 style={{ fontSize: '1.15rem', fontWeight: '800', letterSpacing: '-0.02em', background: 'linear-gradient(to right, #ffffff, #a5b4fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+          <h2 style={{ fontSize: '1.2rem', fontWeight: '800', fontFamily: "'Sora', sans-serif", letterSpacing: '-0.02em', background: 'linear-gradient(to right, #ffffff, #a5b4fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
             DualTech Portfolio
           </h2>
-          <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
-            LinkedIn PDF → Resume & Portfolio
+          <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontFamily: "'Space Grotesk', sans-serif" }}>
+            LinkedIn PDF → Main Character Portfolio & Resume
           </p>
         </div>
       </div>
@@ -34,7 +34,7 @@ export default function Header({ currentStep, setStep, onReset, onExportJson }) 
           className={`step-item ${currentStep === 'upload' ? 'active' : currentStep !== 'upload' ? 'completed' : ''}`}
         >
           <FileText size={15} />
-          1. Upload
+          1. Drop PDF 📄
         </button>
         <span style={{ color: 'rgba(255,255,255,0.2)' }}>/</span>
         <button
@@ -42,7 +42,7 @@ export default function Header({ currentStep, setStep, onReset, onExportJson }) 
           className={`step-item ${currentStep === 'edit' ? 'active' : currentStep === 'preview' ? 'completed' : ''}`}
         >
           <CheckCircle2 size={15} />
-          2. Review & Edit
+          2. Fine-Tune & Flex ✏️
         </button>
         <span style={{ color: 'rgba(255,255,255,0.2)' }}>/</span>
         <button
@@ -50,7 +50,7 @@ export default function Header({ currentStep, setStep, onReset, onExportJson }) 
           className={`step-item ${currentStep === 'preview' ? 'active' : ''}`}
         >
           <Layout size={15} />
-          3. Live Portfolio & Resume
+          3. Serve & Launch 🚀
         </button>
       </div>
 
@@ -59,7 +59,7 @@ export default function Header({ currentStep, setStep, onReset, onExportJson }) 
         <button
           onClick={onExportJson}
           className="btn btn-secondary btn-sm"
-          title="Export Data as JSON"
+          title="Export Data as JSON file"
         >
           <Download size={14} />
           Export JSON
@@ -68,7 +68,7 @@ export default function Header({ currentStep, setStep, onReset, onExportJson }) 
         <button
           onClick={onReset}
           className="btn btn-ghost btn-sm"
-          title="Reset to New Profile"
+          title="Start fresh with a new profile"
         >
           <RotateCcw size={14} />
           Reset
