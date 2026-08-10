@@ -18,9 +18,14 @@ export default function Header({ currentStep, setStep, onReset, onExportJson }) 
           <Sparkles size={22} color="#ffffff" />
         </div>
         <div>
-          <h2 style={{ fontSize: '1.2rem', fontWeight: '800', fontFamily: "'Sora', sans-serif", letterSpacing: '-0.02em', background: 'linear-gradient(to right, #ffffff, #a5b4fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-            DualTech Portfolio
-          </h2>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <h2 style={{ fontSize: '1.2rem', fontWeight: '800', fontFamily: "'Sora', sans-serif", letterSpacing: '-0.02em', background: 'linear-gradient(to right, #ffffff, #a5b4fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+              DualTech Portfolio
+            </h2>
+            <span style={{ fontSize: '0.7rem', padding: '2px 8px', borderRadius: '12px', background: 'rgba(99, 102, 241, 0.2)', border: '1px solid rgba(99, 102, 241, 0.4)', color: '#c7d2fe', fontFamily: "'Space Grotesk', sans-serif", fontWeight: '600' }}>
+              by Srigayathri Rajkumar
+            </span>
+          </div>
           <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontFamily: "'Space Grotesk', sans-serif" }}>
             LinkedIn PDF → Main Character Portfolio & Resume
           </p>

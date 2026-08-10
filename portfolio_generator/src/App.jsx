@@ -134,11 +134,12 @@ export default function App() {
         borderTop: '1px solid var(--border-color)',
         padding: '24px 0',
         textAlign: 'center',
-        fontSize: '0.85rem',
-        color: 'var(--text-dim)',
-        background: 'rgba(11, 15, 25, 0.9)'
+        fontSize: '0.9rem',
+        color: 'var(--text-muted)',
+        background: 'rgba(11, 15, 25, 0.9)',
+        fontFamily: "'Space Grotesk', sans-serif"
       }}>
-        DualTech Portfolio & Resume Generator • Modern Client-Side Engine
+        DualTech Portfolio & Resume Generator • Created & Owned by <strong style={{ color: '#ffffff' }}>Srigayathri Rajkumar</strong>
       </footer>
     </div>
   );
