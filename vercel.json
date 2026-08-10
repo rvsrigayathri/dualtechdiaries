@@ -1,0 +1,11 @@
+{
+  "buildCommand": "cd portfolio_generator && npm install && npx vite build",
+  "outputDirectory": "portfolio_generator/dist",
+  "framework": "vite",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

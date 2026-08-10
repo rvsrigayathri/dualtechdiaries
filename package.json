@@ -1,0 +1,9 @@
+{
+  "name": "dualtechdiaries",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "build": "cd portfolio_generator && npm install && npx vite build",
+    "dev": "cd portfolio_generator && npm run dev"
+  }
+}
